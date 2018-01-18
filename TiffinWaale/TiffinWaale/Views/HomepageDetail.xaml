@@ -4,11 +4,41 @@
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="TiffinWaale.Views.HomepageDetail"
              Title="Tiffin Waale">
-    <StackLayout Padding="10">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
         <maps:Map x:Name="TiffinMap"
-              WidthRequest="320"
-              HeightRequest="200"
-              IsShowingUser="True"
-              MapType="Street"/>
-    </StackLayout>
+                  WidthRequest="320"
+                  IsShowingUser="True"
+                  MapType="Street"
+                  Grid.Row="0"/>
+        <ListView x:Name="ItemsListView" 
+                  ItemsSource="{Binding Suppliers}"
+                  VerticalOptions="FillAndExpand"
+                  HasUnevenRows="true"
+                  RefreshCommand="{Binding LoadSuppliersCommand}"
+                  IsPullToRefreshEnabled="true"
+                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                  CachingStrategy="RecycleElement"
+                  Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Name}" 
+                           LineBreakMode="NoWrap" 
+                           Style="{DynamicResource ListItemTextStyle}" 
+                           FontSize="16" />
+                            <Label Text="{Binding Address}" 
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemDetailTextStyle}"
+                           FontSize="13" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </ContentPage>

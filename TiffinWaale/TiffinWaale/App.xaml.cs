@@ -16,7 +16,10 @@ namespace TiffinWaale
 			InitializeComponent();
 
 			if (UseMockDataStore)
-				DependencyService.Register<MockDataStore>();
+            {
+                DependencyService.Register<MockDataStore>();
+                DependencyService.Register<MockSuppliers>();
+            }
 			else
 				DependencyService.Register<AzureDataStore>();
 

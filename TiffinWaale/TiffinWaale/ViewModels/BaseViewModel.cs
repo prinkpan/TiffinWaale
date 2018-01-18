@@ -13,6 +13,7 @@ namespace TiffinWaale.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
+        public IDataStore<Supplier> SupplierDataStore => DependencyService.Get<IDataStore<Supplier>>() ?? new MockSuppliers();
 
         bool isBusy = false;
         public bool IsBusy
