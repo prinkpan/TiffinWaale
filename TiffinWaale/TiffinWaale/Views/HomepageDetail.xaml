@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:c="clr-namespace:TiffinWaale.Controls"
              x:Class="TiffinWaale.Views.HomepageDetail"
              Title="Tiffin Waale">
     <Grid>
@@ -9,11 +10,17 @@
             <RowDefinition Height="5*"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
-        <maps:Map x:Name="TiffinMap"
+        <!--<maps:Map x:Name="TiffinMap"
                   WidthRequest="320"
                   IsShowingUser="True"
                   MapType="Street"
-                  Grid.Row="0"/>
+                  Grid.Row="0"/>-->
+        <c:CustomMap x:Name="TiffinMap"
+                     Items="{Binding SupplierPins}"
+                     WidthRequest="320"
+                     IsShowingUser="True"
+                     MapType="Street"
+                     Grid.Row="0"/>
         <ListView x:Name="ItemsListView" 
                   ItemsSource="{Binding Suppliers}"
                   VerticalOptions="FillAndExpand"

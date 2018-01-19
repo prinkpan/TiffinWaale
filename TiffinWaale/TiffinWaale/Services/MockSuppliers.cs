@@ -24,7 +24,9 @@ namespace TiffinWaale.Services
                     City = "Mumbai",
                     State = "Maharashtra",
                     Country = "India",
-                    Pincode = "400067"
+                    Pincode = "400067",
+                    Latitude = 19.207690,
+                    Longitude = 72.838814
                 },
                 new Supplier {
                     Id = Guid.NewGuid().ToString(),
@@ -34,7 +36,9 @@ namespace TiffinWaale.Services
                     City = "Mumbai",
                     State = "Maharashtra",
                     Country = "India",
-                    Pincode = "400064"
+                    Pincode = "400064",
+                    Latitude = 19.174108,
+                    Longitude = 72.838282
                 },
                 new Supplier {
                     Id = Guid.NewGuid().ToString(),
@@ -44,7 +48,9 @@ namespace TiffinWaale.Services
                     City = "Mumbai",
                     State = "Maharashtra",
                     Country = "India",
-                    Pincode = "400067"
+                    Pincode = "400067",
+                    Latitude = 19.208156,
+                    Longitude = 72.838802
                 },
                 new Supplier {
                     Id = Guid.NewGuid().ToString(),
@@ -54,7 +60,9 @@ namespace TiffinWaale.Services
                     City = "Mumbai",
                     State = "Maharashtra",
                     Country = "India",
-                    Pincode = "400067"
+                    Pincode = "400067",
+                    Latitude = 19.206579,
+                    Longitude = 72.841896
                 },
                 new Supplier {
                     Id = Guid.NewGuid().ToString(),
@@ -64,8 +72,10 @@ namespace TiffinWaale.Services
                     City = "Mumbai",
                     State = "Maharashtra",
                     Country = "India",
-                    Pincode = "400067"
-                },
+                    Pincode = "400067",
+                    Latitude = 19.206515,
+                    Longitude = 72.835750
+                }
             };
 
             foreach (var supplier in mockSuppliers)
