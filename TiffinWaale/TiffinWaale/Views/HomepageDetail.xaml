@@ -29,7 +29,8 @@
                   IsPullToRefreshEnabled="true"
                   IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                   CachingStrategy="RecycleElement"
-                  Grid.Row="1">
+                  Grid.Row="1"
+                  ItemSelected="OnSupplierSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

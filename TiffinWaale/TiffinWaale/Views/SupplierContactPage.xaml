@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TiffinWaale.Views.SupplierContactPage"
+             xmlns:c="clr-namespace:TiffinWaale.Controls"
              Title="Contact">
     <ContentPage.Content>
             <Grid>
@@ -9,10 +10,15 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <Label Text="Address :" Grid.Row="0" />
-                <Label Text="Rite Fortune, Dahanukarwadi, Kandivali(West), Mumbai" Grid.Row="0" />
-                <Label Text="Phnoe :" Grid.Row="1" />
-                <Label Text="+91 9825142694" Grid.Row="1" />
-            </Grid>
+
+            <Label Text="{Binding Supplier.Name}" Grid.Row="0"/>
+            <Label Text="{Binding Supplier.Address}" Grid.Row="1"/>
+            <c:CustomMap x:Name="TiffinMap"
+                     Items="{Binding SupplierPins}"
+                     WidthRequest="320"
+                     IsShowingUser="True"
+                     MapType="Street"
+                     Grid.Row="0"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
