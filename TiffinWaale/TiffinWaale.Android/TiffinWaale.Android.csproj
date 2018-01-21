@@ -61,6 +61,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helper\ToastNotificationHelper.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Renderer\CustomMapRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

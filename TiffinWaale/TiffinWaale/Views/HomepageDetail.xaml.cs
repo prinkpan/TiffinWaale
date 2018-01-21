@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TiffinWaale.Helper;
 using TiffinWaale.Models;
 using TiffinWaale.ViewModels;
 using Xamarin.Forms;
@@ -44,6 +45,8 @@ namespace TiffinWaale.Views
             {
                 if (viewModel.Suppliers.Count == 0)
                     viewModel.LoadSuppliersCommand.Execute(null);
+
+                DependencyService.Get<IToastNotification>().LongTime($"Found {viewModel.Suppliers.Count} tiffin services near you.");
             }
             catch(Exception ex)
             {
@@ -70,7 +73,7 @@ namespace TiffinWaale.Views
                 if (position == null)
                 {
                     //TODO: Show message to user to enable GPS
-                    Debug.WriteLine("Could not get the location");
+                    DependencyService.Get<IToastNotification>().LongTime("Could not get your location.");
                     return;
                 }
                 else
@@ -88,6 +91,7 @@ namespace TiffinWaale.Views
             }
             catch(Exception ex)
             {
+                DependencyService.Get<IToastNotification>().LongTime("Could not get your location. Please enable GPS.");
                 Debug.WriteLine(ex);
                 return;
             }
@@ -103,18 +107,5 @@ namespace TiffinWaale.Views
             Navigation.PushAsync(new SupplierDetailPage(new SupplierDetailViewModel(supplier)));
             ItemsListView.SelectedItem = null;
         }
-
-        //private void GPSLocationChanged(object sender, Plugin.Geolocator.Abstractions.PositionEventArgs e)
-        //{
-        //    TiffinMap.MoveToRegion(
-        //        MapSpan.FromCenterAndRadius(
-        //            new Position(
-        //                e.Position.Latitude,
-        //                e.Position.Longitude
-        //            ),
-        //            Distance.FromKilometers(3)
-        //        )
-        //    );
-        //}
     }
 }
