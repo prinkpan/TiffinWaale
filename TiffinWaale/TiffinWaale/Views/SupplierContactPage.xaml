@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TiffinWaale.Views.SupplierContactPage"
+             Title="Contact">
+    <ContentPage.Content>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Text="Address :" Grid.Row="0" />
+                <Label Text="Rite Fortune, Dahanukarwadi, Kandivali(West), Mumbai" Grid.Row="0" />
+                <Label Text="Phnoe :" Grid.Row="1" />
+                <Label Text="+91 9825142694" Grid.Row="1" />
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>
