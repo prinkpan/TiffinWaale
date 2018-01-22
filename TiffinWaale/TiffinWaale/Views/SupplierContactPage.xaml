@@ -14,7 +14,7 @@
             <Label Text="{Binding Supplier.Name}" Grid.Row="0"/>
             <Label Text="{Binding Supplier.Address}" Grid.Row="1"/>
             <c:CustomMap x:Name="TiffinMap"
-                     Items="{Binding SupplierPins}"
+                     Items="{Binding SupplierPin}"
                      WidthRequest="320"
                      IsShowingUser="True"
                      MapType="Street"

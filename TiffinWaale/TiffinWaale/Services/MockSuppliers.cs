@@ -75,6 +75,30 @@ namespace TiffinWaale.Services
                     Pincode = "400067",
                     Latitude = 19.206515,
                     Longitude = 72.835750
+                },
+                new Supplier {
+                    Id = Guid.NewGuid().ToString(),
+                    Name = "ONE-GNR",
+                    Address1 = "Sector 3C",
+                    Address2 = "Near School",
+                    City = "Gandhinagar",
+                    State = "Gujarat",
+                    Country = "India",
+                    Pincode = "382003",
+                    Latitude = 23.208116,
+                    Longitude = 72.629629
+                },
+                new Supplier {
+                    Id = Guid.NewGuid().ToString(),
+                    Name = "TWO-GNR",
+                    Address1 = "Sector 3C",
+                    Address2 = "Near School",
+                    City = "Gandhinagar",
+                    State = "Gujarat",
+                    Country = "India",
+                    Pincode = "382003",
+                    Latitude = 23.207823,
+                    Longitude = 72.630433
                 }
             };
 

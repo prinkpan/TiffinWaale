@@ -4,8 +4,4 @@
              x:Class="TiffinWaale.Views.SupplierDetailPage"
             xmlns:local="clr-namespace:TiffinWaale.Views">
 
-    <local:SupplierServicesPage></local:SupplierServicesPage>
-    <local:SupplierMenuPage></local:SupplierMenuPage>
-    <local:SupplierContactPage></local:SupplierContactPage>
-   
 </TabbedPage>
