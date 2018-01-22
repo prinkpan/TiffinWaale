@@ -33,20 +33,26 @@ namespace TiffinWaale.Views
                 )
             );
 
-            GoToDeviceLocation();
             BindingContext = viewModel = new SuppliersViewModel();
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
 
             try
             {
-                if (viewModel.Suppliers.Count == 0)
-                    viewModel.LoadSuppliersCommand.Execute(null);
+                if (await GoToDeviceLocation())
+                {
+                    if (viewModel.Suppliers.Count == 0)
+                        viewModel.LoadSuppliersCommand.Execute(null);
 
-                DependencyService.Get<IToastNotification>().LongTime($"Found {viewModel.Suppliers.Count} tiffin services near you.");
+                    DependencyService.Get<IToastNotification>().LongTime($"Found {viewModel.Suppliers.Count} tiffin services near you.");
+                }
+                else
+                {
+                    DependencyService.Get<IToastNotification>().LongTime("Could not get your location.");
+                }
             }
             catch(Exception ex)
             {
@@ -54,7 +60,7 @@ namespace TiffinWaale.Views
             }
         }
 
-        private async void GoToDeviceLocation()
+        private async Task<bool> GoToDeviceLocation()
         {
             Plugin.Geolocator.Abstractions.Position position = null;
             try
@@ -72,9 +78,7 @@ namespace TiffinWaale.Views
 
                 if (position == null)
                 {
-                    //TODO: Show message to user to enable GPS
-                    DependencyService.Get<IToastNotification>().LongTime("Could not get your location.");
-                    return;
+                    return false;
                 }
                 else
                 {
@@ -87,13 +91,13 @@ namespace TiffinWaale.Views
                             Distance.FromKilometers(3)
                         )
                     );
+                    return true;
                 }
             }
             catch(Exception ex)
             {
-                DependencyService.Get<IToastNotification>().LongTime("Could not get your location. Please enable GPS.");
                 Debug.WriteLine(ex);
-                return;
+                return false;
             }
         }
 
@@ -106,6 +110,20 @@ namespace TiffinWaale.Views
 
             Navigation.PushAsync(new SupplierDetailPage(new SupplierDetailViewModel(supplier)));
             ItemsListView.SelectedItem = null;
+        }
+
+        private void OnToggleScreenClicked(object sender, ClickedEventArgs e)
+        {
+            if(ToggleScreen.Text.Equals("^"))
+            {
+                ToggleScreen.Text = "=";
+                HomeGrid.RowDefinitions[0].Height = 0;
+            }
+            else if(ToggleScreen.Text.Equals("="))
+            {
+                ToggleScreen.Text = "^";
+                HomeGrid.RowDefinitions[0].Height = new GridLength(5, GridUnitType.Star);
+            }
         }
     }
 }

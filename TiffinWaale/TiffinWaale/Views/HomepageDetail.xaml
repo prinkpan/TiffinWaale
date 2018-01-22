@@ -5,22 +5,22 @@
              xmlns:c="clr-namespace:TiffinWaale.Controls"
              x:Class="TiffinWaale.Views.HomepageDetail"
              Title="Tiffin Waale">
-    <Grid>
+    <Grid x:Name="HomeGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
-        <!--<maps:Map x:Name="TiffinMap"
-                  WidthRequest="320"
-                  IsShowingUser="True"
-                  MapType="Street"
-                  Grid.Row="0"/>-->
         <c:CustomMap x:Name="TiffinMap"
                      Items="{Binding SupplierPins}"
                      WidthRequest="320"
                      IsShowingUser="True"
                      MapType="Street"
                      Grid.Row="0"/>
+        <Button x:Name="ToggleScreen"
+                Text="^"
+                Clicked="OnToggleScreenClicked"
+                Grid.Row="1" />
         <ListView x:Name="ItemsListView" 
                   ItemsSource="{Binding Suppliers}"
                   VerticalOptions="FillAndExpand"
@@ -29,18 +29,18 @@
                   IsPullToRefreshEnabled="true"
                   IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                   CachingStrategy="RecycleElement"
-                  Grid.Row="1"
+                  Grid.Row="2"
                   ItemSelected="OnSupplierSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
                             <Label Text="{Binding Name}" 
-                           LineBreakMode="NoWrap" 
+                           LineBreakMode="TailTruncation" 
                            Style="{DynamicResource ListItemTextStyle}" 
                            FontSize="16" />
                             <Label Text="{Binding Address}" 
-                           LineBreakMode="NoWrap"
+                           LineBreakMode="WordWrap"
                            Style="{DynamicResource ListItemDetailTextStyle}"
                            FontSize="13" />
                         </StackLayout>

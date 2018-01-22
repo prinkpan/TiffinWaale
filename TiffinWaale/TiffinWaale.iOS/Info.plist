@@ -52,5 +52,7 @@
     <string>Tiffin Waale needs access to your location</string>
   <key>NSLocationWhenInUseUsageDescription</key>
     <string>Tiffin Waale is using your location</string>
+  <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>This app needs access location when open and in the background.</string>
 </dict>
 </plist>
