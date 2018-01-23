@@ -5,48 +5,65 @@
              xmlns:c="clr-namespace:TiffinWaale.Controls"
              x:Class="TiffinWaale.Views.HomepageDetail"
              Title="Tiffin Waale">
-    <Grid x:Name="HomeGrid">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="3*"/>
-        </Grid.RowDefinitions>
-        <c:CustomMap x:Name="TiffinMap"
-                     Items="{Binding SupplierPins}"
-                     WidthRequest="320"
-                     IsShowingUser="True"
-                     MapType="Street"
-                     Grid.Row="0"/>
-        <Button x:Name="ToggleScreen"
-                Text="^"
-                Clicked="OnToggleScreenClicked"
-                Grid.Row="1" />
-        <ListView x:Name="ItemsListView" 
-                  ItemsSource="{Binding Suppliers}"
-                  VerticalOptions="FillAndExpand"
-                  HasUnevenRows="true"
-                  RefreshCommand="{Binding LoadSuppliersCommand}"
-                  IsPullToRefreshEnabled="true"
-                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                  CachingStrategy="RecycleElement"
-                  Grid.Row="2"
-                  ItemSelected="OnSupplierSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding Name}" 
-                           LineBreakMode="TailTruncation" 
-                           Style="{DynamicResource ListItemTextStyle}" 
-                           FontSize="16" />
-                            <Label Text="{Binding Address}" 
-                           LineBreakMode="WordWrap"
-                           Style="{DynamicResource ListItemDetailTextStyle}"
-                           FontSize="13" />
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </Grid>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="EditLocation"
+                     Order="Primary"
+                     Icon="ic_edit_location_white.png"
+                     Text="Location"
+                     Priority="0"
+                     Clicked="OnEditLocationClicked"/>
+        <ToolbarItem Name="Search"
+                     Order="Primary"
+                     Icon="ic_search_white.png"
+                     Text="Search"
+                     Priority="0"
+                     Clicked="OnSearchClicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid x:Name="HomeGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+            <c:CustomMap x:Name="TiffinMap"
+                         Items="{Binding SupplierPins}"
+                         WidthRequest="320"
+                         IsShowingUser="True"
+                         MapType="Street"
+                         Grid.Row="0"
+                         PropertyChanged="OnMapPropertyChanged"/>
+            <Button x:Name="ToggleScreen"
+                    Text="^"
+                    Clicked="OnToggleScreenClicked"
+                    Grid.Row="1" />
+            <ListView x:Name="ItemsListView" 
+                      ItemsSource="{Binding Suppliers}"
+                      VerticalOptions="FillAndExpand"
+                      HasUnevenRows="true"
+                      RefreshCommand="{Binding LoadSuppliersCommand}"
+                      IsPullToRefreshEnabled="true"
+                      IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                      CachingStrategy="RecycleElement"
+                      Grid.Row="2"
+                      ItemSelected="OnSupplierSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Name}" 
+                               LineBreakMode="TailTruncation" 
+                               Style="{DynamicResource ListItemTextStyle}" 
+                               FontSize="16" />
+                                <Label Text="{Binding Address}" 
+                               LineBreakMode="WordWrap"
+                               Style="{DynamicResource ListItemDetailTextStyle}"
+                               FontSize="13" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>
