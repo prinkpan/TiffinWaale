@@ -25,6 +25,8 @@ namespace TiffinWaale.Services
                     State = "Maharashtra",
                     Country = "India",
                     Pincode = "400067",
+                    PrimaryPhone = "9825142694",
+                    AlternatePhone = "9825142694",
                     Latitude = 19.207690,
                     Longitude = 72.838814
                 },
@@ -37,6 +39,8 @@ namespace TiffinWaale.Services
                     State = "Maharashtra",
                     Country = "India",
                     Pincode = "400064",
+                    PrimaryPhone = "9825142694",
+                    AlternatePhone = "9825142694",
                     Latitude = 19.174108,
                     Longitude = 72.838282
                 },
@@ -49,6 +53,8 @@ namespace TiffinWaale.Services
                     State = "Maharashtra",
                     Country = "India",
                     Pincode = "400067",
+                    PrimaryPhone = "9825142694",
+                    AlternatePhone = "9825142694",
                     Latitude = 19.208156,
                     Longitude = 72.838802
                 },
@@ -61,6 +67,8 @@ namespace TiffinWaale.Services
                     State = "Maharashtra",
                     Country = "India",
                     Pincode = "400067",
+                    PrimaryPhone = "9825142694",
+                    AlternatePhone = "9825142694",
                     Latitude = 19.206579,
                     Longitude = 72.841896
                 },
@@ -73,6 +81,8 @@ namespace TiffinWaale.Services
                     State = "Maharashtra",
                     Country = "India",
                     Pincode = "400067",
+                    PrimaryPhone = "9825142694",
+                    AlternatePhone = "9825142694",
                     Latitude = 19.206515,
                     Longitude = 72.835750
                 },
@@ -85,6 +95,8 @@ namespace TiffinWaale.Services
                     State = "Gujarat",
                     Country = "India",
                     Pincode = "382003",
+                    PrimaryPhone = "9870058120",
+                    AlternatePhone = "9870058120",
                     Latitude = 23.208116,
                     Longitude = 72.629629
                 },
@@ -97,6 +109,8 @@ namespace TiffinWaale.Services
                     State = "Gujarat",
                     Country = "India",
                     Pincode = "382003",
+                    PrimaryPhone = "9870058120",
+                    AlternatePhone = "9870058120",
                     Latitude = 23.207823,
                     Longitude = 72.630433
                 }

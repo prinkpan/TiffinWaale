@@ -14,8 +14,13 @@ namespace TiffinWaale.Models
         public string State { get; set; }
         public string Country { get; set; }
         public string Pincode { get; set; }
+        public string PrimaryPhone { get; set; }
+        public string AlternatePhone { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
+        public double ServiceRadius { get; set; }
+        public double FoodRating { get; set; }
+        public double ServiceRating { get; set; }
 
         public string Address
         {

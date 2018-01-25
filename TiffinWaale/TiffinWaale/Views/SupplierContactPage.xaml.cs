@@ -38,5 +38,17 @@ namespace TiffinWaale.Views
                 )
             );
         }
+        async void OnCall(object sender, EventArgs e)
+        {
+            if (await this.DisplayAlert(
+                    "Dial a Number",
+                    "Would you like to call " + PhoneNumber.Text.ToString() + "?",
+                    "Yes",
+                    "No"))
+            {
+                DependencyService.Get<IDialer>().MakeCall(PhoneNumber.Text.ToString());
+                
+            }
+        }
     }
 }
