@@ -23,7 +23,7 @@ namespace TiffinWaale.Views
         {
             InitializeComponent();
             BindingContext = this.viewModel = viewModel;
-            Children.Add(new SupplierServicesPage());
+            Children.Add(new SupplierServicesPage(viewModel));
             Children.Add(new SupplierMenuPage());
             Children.Add(new SupplierContactPage(viewModel));
         }

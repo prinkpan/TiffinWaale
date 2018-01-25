@@ -6,7 +6,7 @@ namespace TiffinWaale.Models
 {
     public class Supplier
     {
-        public string Id { get; set; }
+        public string SupplierId { get; set; }
         public string Name { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
@@ -18,9 +18,10 @@ namespace TiffinWaale.Models
         public string AlternatePhone { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
-        public double ServiceRadius { get; set; }
         public double FoodRating { get; set; }
         public double ServiceRating { get; set; }
+
+        public virtual SupplierService Services { get; set; }
 
         public string Address
         {

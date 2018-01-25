@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using TiffinWaale.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,5 +16,10 @@ namespace TiffinWaale.Views
 		{
 			InitializeComponent ();
 		}
+
+        public SupplierServicesPage(SupplierDetailViewModel viewModel)
+        {
+            InitializeComponent();
+        }
 	}
 }

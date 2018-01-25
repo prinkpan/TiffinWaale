@@ -5,9 +5,7 @@
              Title="Services">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome Supplier Service Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="Lunch" Text="{Binding Supplier.Services.Lunch}" Grid.Row="3"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
