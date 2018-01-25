@@ -16,6 +16,8 @@ namespace TiffinWaale.ViewModels
     {
         public ObservableCollection<Supplier> Suppliers { get; set; }
         public ObservableCollection<CustomPin> SupplierPins { get; set; }
+        public Plugin.Geolocator.Abstractions.Position UserPosition { get; set; }
+        public double MapRadius { get; set; } = 3;
 
         public Command LoadSuppliersCommand { get; set; }
 
@@ -46,6 +48,7 @@ namespace TiffinWaale.ViewModels
             {
                 Geocoder geoCoder = new Geocoder();
                 Suppliers.Clear();
+                SupplierPins.Clear();
                 var suppliers = await SupplierDataStore.GetItemsAsync(true);
                 foreach (var supplier in suppliers)
                 {
@@ -60,17 +63,22 @@ namespace TiffinWaale.ViewModels
                         }
                     }
 
-                    Suppliers.Add(supplier);
+                    var distance = Distance(UserPosition.Latitude, UserPosition.Longitude, supplier.Latitude, supplier.Longitude, 'K');
 
-                    SupplierPins.Add(new CustomPin
+                    if(distance <= MapRadius)
                     {
-                        Type = PinType.Place,
-                        Position = new Position(supplier.Latitude, supplier.Longitude),
-                        Label = supplier.Name,
-                        Address = supplier.Address,
-                        Color = Color.Red,
-                        Opacity = 100
-                    });
+                        Suppliers.Add(supplier);
+
+                        SupplierPins.Add(new CustomPin
+                        {
+                            Type = PinType.Place,
+                            Position = new Position(supplier.Latitude, supplier.Longitude),
+                            Label = supplier.Name,
+                            Address = supplier.Address,
+                            Color = Color.Red,
+                            Opacity = 100
+                        });
+                    }
                 }
             }
             catch (Exception ex)
@@ -81,6 +89,35 @@ namespace TiffinWaale.ViewModels
             {
                 IsBusy = false;
             }
+        }
+
+        private double Distance(double lat1, double lon1, double lat2, double lon2, char unit)
+        {
+            //http://www.geodatasource.com/developers/c-sharp
+            double theta = lon1 - lon2;
+            double dist = Math.Sin(Deg2Rad(lat1)) * Math.Sin(Deg2Rad(lat2)) + Math.Cos(Deg2Rad(lat1)) * Math.Cos(Deg2Rad(lat2)) * Math.Cos(Deg2Rad(theta));
+            dist = Math.Acos(dist);
+            dist = Rad2Deg(dist);
+            dist = dist * 60 * 1.1515;
+            if (unit == 'K')
+            {
+                dist = dist * 1.609344;
+            }
+            else if (unit == 'N')
+            {
+                dist = dist * 0.8684;
+            }
+            return (dist);
+        }
+
+        private double Deg2Rad(double deg)
+        {
+            return (deg * Math.PI / 180.0);
+        }
+
+        private double Rad2Deg(double rad)
+        {
+            return (rad / Math.PI * 180.0);
         }
     }
 }

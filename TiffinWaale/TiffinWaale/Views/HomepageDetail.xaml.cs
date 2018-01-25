@@ -66,33 +66,38 @@ namespace TiffinWaale.Views
             try
             {
                 var locator = CrossGeolocator.Current;
-
-                position = await locator.GetLastKnownLocationAsync();
-                if(position == null)
+                if(viewModel.UserPosition == null)
                 {
-                    if (locator.IsGeolocationAvailable && locator.IsGeolocationEnabled)
+                    position = await locator.GetLastKnownLocationAsync();
+                    if (position == null)
                     {
-                        position = await locator.GetPositionAsync(TimeSpan.FromSeconds(30), null, true);
+                        if (locator.IsGeolocationAvailable && locator.IsGeolocationEnabled)
+                        {
+                            position = await locator.GetPositionAsync(TimeSpan.FromSeconds(30), null, true);
+                        }
+                    }
+
+                    if (position == null)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        viewModel.UserPosition = new Plugin.Geolocator.Abstractions.Position(position.Latitude, position.Longitude);
+
+                        TiffinMap.MoveToRegion(
+                            MapSpan.FromCenterAndRadius(
+                                new Position(
+                                    position.Latitude,
+                                    position.Longitude
+                                ),
+                                Distance.FromKilometers(3)
+                            )
+                        );
+                        return true;
                     }
                 }
-
-                if (position == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    TiffinMap.MoveToRegion(
-                        MapSpan.FromCenterAndRadius(
-                            new Position(
-                                position.Latitude,
-                                position.Longitude
-                            ),
-                            Distance.FromKilometers(3)
-                        )
-                    );
-                    return true;
-                }
+                return true;
             }
             catch(Exception ex)
             {
@@ -124,6 +129,27 @@ namespace TiffinWaale.Views
                 ToggleScreen.Text = "^";
                 HomeGrid.RowDefinitions[0].Height = new GridLength(5, GridUnitType.Star);
             }
+        }
+
+        private void OnMapPropertyChanged(object sender, PropertyChangingEventArgs e)
+        {
+            var map = (Map)sender;
+            if (map.VisibleRegion != null)
+            {
+                viewModel.UserPosition = new Plugin.Geolocator.Abstractions.Position(map.VisibleRegion.Center.Latitude, map.VisibleRegion.Center.Longitude);
+                viewModel.MapRadius = map.VisibleRegion.Radius.Kilometers;
+                viewModel.LoadSuppliersCommand.Execute(null);
+            }
+        }
+
+        private void OnSearchClicked(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void OnEditLocationClicked(object sender, EventArgs e)
+        {
+
         }
     }
 }
