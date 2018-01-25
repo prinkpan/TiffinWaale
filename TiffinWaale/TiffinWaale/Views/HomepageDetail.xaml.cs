@@ -144,7 +144,7 @@ namespace TiffinWaale.Views
 
         private void OnSearchClicked(object sender, EventArgs e)
         {
-            
+            Navigation.PushAsync(new SupplierFilter(viewModel));
         }
 
         private void OnEditLocationClicked(object sender, EventArgs e)
