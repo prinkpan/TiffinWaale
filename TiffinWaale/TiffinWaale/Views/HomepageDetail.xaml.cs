@@ -117,20 +117,6 @@ namespace TiffinWaale.Views
             ItemsListView.SelectedItem = null;
         }
 
-        private void OnToggleScreenClicked(object sender, ClickedEventArgs e)
-        {
-            if(ToggleScreen.Text.Equals("^"))
-            {
-                ToggleScreen.Text = "=";
-                HomeGrid.RowDefinitions[0].Height = 0;
-            }
-            else if(ToggleScreen.Text.Equals("="))
-            {
-                ToggleScreen.Text = "^";
-                HomeGrid.RowDefinitions[0].Height = new GridLength(5, GridUnitType.Star);
-            }
-        }
-
         private void OnMapPropertyChanged(object sender, PropertyChangingEventArgs e)
         {
             var map = (Map)sender;
@@ -144,7 +130,7 @@ namespace TiffinWaale.Views
 
         private void OnSearchClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new SupplierFilter(viewModel));
+            Navigation.PushAsync(new SupplierFilter(new SupplierFilterViewModel(viewModel.Suppliers.ToList())));
         }
 
         private void OnEditLocationClicked(object sender, EventArgs e)

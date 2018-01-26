@@ -4,7 +4,7 @@
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              xmlns:c="clr-namespace:TiffinWaale.Controls"
              x:Class="TiffinWaale.Views.HomepageDetail"
-             Title="Tiffin Waale">
+             Title="Tiffinwaale">
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="EditLocation"
                      Order="Primary"
@@ -23,8 +23,7 @@
         <Grid x:Name="HomeGrid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="5*"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="3*"/>
+                <RowDefinition Height="5*"/>
             </Grid.RowDefinitions>
             <c:CustomMap x:Name="TiffinMap"
                          Items="{Binding SupplierPins}"
@@ -33,10 +32,6 @@
                          MapType="Street"
                          Grid.Row="0"
                          PropertyChanged="OnMapPropertyChanged"/>
-            <Button x:Name="ToggleScreen"
-                    Text="^"
-                    Clicked="OnToggleScreenClicked"
-                    Grid.Row="1" />
             <ListView x:Name="ItemsListView" 
                       ItemsSource="{Binding Suppliers}"
                       VerticalOptions="FillAndExpand"
@@ -45,7 +40,7 @@
                       IsPullToRefreshEnabled="true"
                       IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                       CachingStrategy="RecycleElement"
-                      Grid.Row="2"
+                      Grid.Row="1"
                       ItemSelected="OnSupplierSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>

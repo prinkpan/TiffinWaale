@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 using TiffinWaale.Models;
 using TiffinWaale.ViewModels;
 using Xamarin.Forms;
@@ -10,19 +8,25 @@ using Xamarin.Forms.Xaml;
 
 namespace TiffinWaale.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SupplierFilter : ContentPage
 	{
-        SuppliersViewModel viewModel;
+        SupplierFilterViewModel viewModel;
 		public SupplierFilter ()
 		{
 			InitializeComponent ();
 		}
 
-        public SupplierFilter(SuppliersViewModel viewModel)
+        public SupplierFilter(SupplierFilterViewModel viewModel)
         {
             InitializeComponent();
             BindingContext = this.viewModel = viewModel;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            FilterEntry.Focus();
         }
 
         private void OnSupplierSelected(object sender, SelectedItemChangedEventArgs e)
@@ -34,6 +38,19 @@ namespace TiffinWaale.Views
 
             Navigation.PushAsync(new SupplierDetailPage(new SupplierDetailViewModel(supplier)));
             ItemsListView.SelectedItem = null;
+        }
+
+        private void OnFilterTextChanged(object sender, TextChangedEventArgs e)
+        {
+            viewModel.Suppliers.Clear();
+            foreach (var supplier in viewModel.SuppliersList)
+            {
+                if (supplier.Name.IndexOf(e.NewTextValue, StringComparison.InvariantCultureIgnoreCase) >= 0
+                    || supplier.Address.IndexOf(e.NewTextValue, StringComparison.InvariantCultureIgnoreCase) >= 0)
+                {
+                    viewModel.Suppliers.Add(supplier);
+                }
+            }
         }
     }
 }

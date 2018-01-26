@@ -4,9 +4,13 @@
              x:Class="TiffinWaale.Views.SupplierFilter">
     <ContentPage.Content>
         <StackLayout>
+            <Entry x:Name="FilterEntry"
+                   Placeholder="Search Tiffinwaale"
+                   TextChanged="OnFilterTextChanged"/>
             <ListView x:Name="ItemsListView" 
                       ItemsSource="{Binding Suppliers}"
                       VerticalOptions="FillAndExpand"
+                      HasUnevenRows="True"
                       ItemSelected="OnSupplierSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
