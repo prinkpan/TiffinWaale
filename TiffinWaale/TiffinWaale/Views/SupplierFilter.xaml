@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TiffinWaale.Views.SupplierFilter">
+             x:Class="TiffinWaale.Views.SupplierFilter"
+             Title="Tiffinwaale">
     <ContentPage.Content>
         <StackLayout>
             <Entry x:Name="FilterEntry"
-                   Placeholder="Search Tiffinwaale"
+                   Placeholder="Search"
                    TextChanged="OnFilterTextChanged"/>
             <ListView x:Name="ItemsListView" 
                       ItemsSource="{Binding Suppliers}"
