@@ -2,6 +2,7 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TiffinWaale.Views.SupplierDetailPage"
-            xmlns:local="clr-namespace:TiffinWaale.Views">
+            xmlns:local="clr-namespace:TiffinWaale.Views"
+            Title="{Binding Supplier.Name}">
 
 </TabbedPage>

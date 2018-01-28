@@ -14,22 +14,28 @@ using Xamarin.Forms;
 using TiffinWaale.Droid;
 using TiffinWaale.Helper;
 
-[assembly: Dependency(typeof(AndroidDialer))]
+[assembly: Dependency(typeof(DialerHelper))]
 namespace TiffinWaale.Droid
 {
-    public class AndroidDialer : IDialer
+    public class DialerHelper : IDialer
     {
-        public void MakeCall(string phoneNumber)
+        internal Context Context { get; set; }
+
+        public bool MakeCall(string phoneNumber)
         {
+            if (Context == null)
+                return false;
             try
             {
                 var URI = Android.Net.Uri.Parse(string.Format("tel:{0}", phoneNumber));
-                var intent = new Intent(Intent.ActionCall, URI);
-                Xamarin.Forms.Forms.Context.StartActivity(intent);
+                var intent = new Intent(Intent.ActionDial, URI);
+                Context.StartActivity(intent);
+                return true;
             }
             catch (Exception ex)
             {
                 string msg = ex.Message;
+                return false;
             }
         }
     }

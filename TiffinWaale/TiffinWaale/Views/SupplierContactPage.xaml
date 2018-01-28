@@ -5,23 +5,16 @@
              xmlns:c="clr-namespace:TiffinWaale.Controls"
              Title="Contact">
     <ContentPage.Content>
-        <Grid Padding="10,10,10,10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="10"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Label Text="{Binding Supplier.Name}" Grid.Row="0"/>
+        <StackLayout Margin="10,10,10,10">
             <c:CustomMap x:Name="TiffinMap"
                      Items="{Binding SupplierPin}"
                      WidthRequest="320"
                      IsShowingUser="True"
-                     MapType="Street"
-                     Grid.Row="1"/>
-            <Label Text="{Binding Supplier.Address}" Grid.Row="2"/>
-            <Label x:Name="PhoneNumber" Text="{Binding Supplier.PrimaryPhone}" Grid.Row="3"/>
-            <Button x:Name="callButton" Text="Call" Clicked="OnCall" Grid.Row="3" />
-        </Grid>
-    </ContentPage.Content>
+                     MapType="Street"/>
+            <Label Text="{Binding Supplier.Address}" />
+            <Label Text="{Binding Supplier.EmailAddress}" />
+            <Label x:Name="PhoneNumber" Text="{Binding Supplier.PrimaryPhone}" />
+            <Button x:Name="callButton" Text="Call Us" Clicked="OnCall"  />
+        </StackLayout>
+     </ContentPage.Content>
 </ContentPage>

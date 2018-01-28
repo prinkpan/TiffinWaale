@@ -7,6 +7,8 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Plugin.Permissions;
+using Xamarin.Forms;
+using TiffinWaale.Helper;
 
 namespace TiffinWaale.Droid
 {
@@ -22,6 +24,10 @@ namespace TiffinWaale.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Xamarin.FormsMaps.Init(this, bundle);
+            var dialer = DependencyService.Get<IDialer>(DependencyFetchTarget.GlobalInstance);
+            var androidDialer = dialer as DialerHelper;
+            androidDialer.Context = this;
+
             Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
             LoadApplication(new App());
         }

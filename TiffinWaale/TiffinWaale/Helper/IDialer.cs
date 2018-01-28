@@ -6,6 +6,6 @@ namespace TiffinWaale.Helper
 {
     public interface IDialer
     {
-        void MakeCall(string phoneNumber);
+        bool MakeCall(string phoneNumber);
     }
 }

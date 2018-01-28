@@ -4,8 +4,19 @@
              x:Class="TiffinWaale.Views.SupplierServicesPage"
              Title="Services">
     <ContentPage.Content>
-        <StackLayout>
-            <Label x:Name="Lunch" Text="{Binding Supplier.Services.Lunch}" Grid.Row="3"/>
+        <StackLayout Orientation="Vertical"  Padding="10" VerticalOptions="FillAndExpand">
+            <StackLayout x:Name="ServiceTypeStackLayout" Orientation="Horizontal" HorizontalOptions="StartAndExpand" >
+                <Label x:Name="ServiceTypeLabel" Text="Service Type" BackgroundColor="BlueViolet"  />
+            </StackLayout>
+            <StackLayout x:Name="FoodCategoryStackLayout" Orientation="Horizontal" HorizontalOptions="StartAndExpand" >
+                <Label x:Name="FoodCategoryLabel" Text="Food Category" BackgroundColor="BlueViolet"  />
+            </StackLayout>
+            <StackLayout x:Name="DeliveryStackLayout" Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                <Label x:Name="DeliveryLabel" Text="Delivery" BackgroundColor="BlueViolet"  />
+            </StackLayout>
+            <StackLayout x:Name="CuisineLayout" Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                <Label x:Name="CuisineLabel" Text="Cuisine" BackgroundColor="BlueViolet"  />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

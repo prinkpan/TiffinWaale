@@ -16,6 +16,7 @@ namespace TiffinWaale.Models
         public string Pincode { get; set; }
         public string PrimaryPhone { get; set; }
         public string AlternatePhone { get; set; }
+        public string EmailAddress { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public double FoodRating { get; set; }

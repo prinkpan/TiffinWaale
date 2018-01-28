@@ -27,6 +27,7 @@ namespace TiffinWaale.Services
                     Pincode = "400067",
                     PrimaryPhone = "9825142694",
                     AlternatePhone = "9825142694",
+                    EmailAddress = "tiffin@gmail.com",
                     Latitude = 19.207690,
                     Longitude = 72.838814,
                     FoodRating = 4.5,
@@ -39,9 +40,10 @@ namespace TiffinWaale.Services
                         Vegeterian = true,
                         NonVegeterian = false,
                         Jain = true,
-                        Delivery = true,
+                        HomeDelivery = true,
+                        HomeDeliveryArea = 20.0,
                         TakeAway = true,
-                        ServiceRadius = 20.0
+                        Cuisine = "Panjabi, Gujarati, Rajasthani"
                     }
                 },
                 new Supplier {
@@ -55,6 +57,7 @@ namespace TiffinWaale.Services
                     Pincode = "400064",
                     PrimaryPhone = "9825142694",
                     AlternatePhone = "9825142694",
+                    EmailAddress = "tiffin@gmail.com",
                     Latitude = 19.174108,
                     Longitude = 72.838282,
                     FoodRating = 3.0,
@@ -67,9 +70,10 @@ namespace TiffinWaale.Services
                         Vegeterian = true,
                         NonVegeterian = false,
                         Jain = false,
-                        Delivery = false,
+                        HomeDelivery = false,
+                        HomeDeliveryArea = 20.0,
                         TakeAway = true,
-                        ServiceRadius = 20.0
+                        Cuisine = "Panjabi, Gujarati, Rajasthani"
                     }
                 },
                 new Supplier {
@@ -83,6 +87,7 @@ namespace TiffinWaale.Services
                     Pincode = "400067",
                     PrimaryPhone = "9825142694",
                     AlternatePhone = "9825142694",
+                    EmailAddress = "tiffin@gmail.com",
                     Latitude = 19.208156,
                     Longitude = 72.838802,
                     FoodRating = 3.0,
@@ -95,9 +100,10 @@ namespace TiffinWaale.Services
                         Vegeterian = true,
                         NonVegeterian = true,
                         Jain = false,
-                        Delivery = false,
+                        HomeDelivery = false,
+                        HomeDeliveryArea = 20.0,
                         TakeAway = true,
-                        ServiceRadius = 20.0
+                        Cuisine = "Panjabi, Gujarati, Rajasthani"
                     }
                 },
                 new Supplier {
@@ -111,6 +117,7 @@ namespace TiffinWaale.Services
                     Pincode = "400067",
                     PrimaryPhone = "9825142694",
                     AlternatePhone = "9825142694",
+                    EmailAddress = "tiffin@gmail.com",
                     Latitude = 19.206579,
                     Longitude = 72.841896,
                     FoodRating = 5.0,
@@ -123,9 +130,10 @@ namespace TiffinWaale.Services
                         Vegeterian = true,
                         NonVegeterian = true,
                         Jain = false,
-                        Delivery = true,
+                        HomeDelivery = true,
+                        HomeDeliveryArea = 20.0,
                         TakeAway = true,
-                        ServiceRadius = 20.0
+                        Cuisine = "Panjabi, Gujarati, Rajasthani"
                     }
                 },
                 new Supplier {
@@ -139,6 +147,7 @@ namespace TiffinWaale.Services
                     Pincode = "400067",
                     PrimaryPhone = "9825142694",
                     AlternatePhone = "9825142694",
+                    EmailAddress = "tiffin@gmail.com",
                     Latitude = 19.206515,
                     Longitude = 72.835750,
                     FoodRating = 3.3,
@@ -151,9 +160,10 @@ namespace TiffinWaale.Services
                         Vegeterian = true,
                         NonVegeterian = true,
                         Jain = true,
-                        Delivery = false,
-                        TakeAway = false,
-                        ServiceRadius = 20.0
+                        HomeDelivery = false,
+                        HomeDeliveryArea = 20.0,
+                        TakeAway = true,
+                        Cuisine = "Panjabi, Gujarati, Rajasthani"
                     }
                 },
                 new Supplier {
@@ -167,6 +177,7 @@ namespace TiffinWaale.Services
                     Pincode = "382003",
                     PrimaryPhone = "9870058120",
                     AlternatePhone = "9870058120",
+                    EmailAddress = "tiffin@gmail.com",
                     Latitude = 23.208116,
                     Longitude = 72.629629,
                     FoodRating = 5.0,
@@ -179,9 +190,10 @@ namespace TiffinWaale.Services
                         Vegeterian = true,
                         NonVegeterian = false,
                         Jain = true,
-                        Delivery = true,
+                        HomeDelivery = true,
+                        HomeDeliveryArea = 20.0,
                         TakeAway = true,
-                        ServiceRadius = 20.0
+                        Cuisine = "Panjabi, Gujarati, Rajasthani"
                     }
                 },
                 new Supplier {
@@ -195,6 +207,7 @@ namespace TiffinWaale.Services
                     Pincode = "382003",
                     PrimaryPhone = "9870058120",
                     AlternatePhone = "9870058120",
+                    EmailAddress = "tiffin@gmail.com",
                     Latitude = 23.207823,
                     Longitude = 72.630433,
                     FoodRating = 4.0,
@@ -207,9 +220,10 @@ namespace TiffinWaale.Services
                         Vegeterian = false,
                         NonVegeterian = true,
                         Jain = false,
-                        Delivery = true,
+                        HomeDelivery = true,
+                        HomeDeliveryArea = 20.0,
                         TakeAway = true,
-                        ServiceRadius = 20.0
+                        Cuisine = "Panjabi, Gujarati, Rajasthani"
                     }
                 }
             };
