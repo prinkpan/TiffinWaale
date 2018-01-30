@@ -219,11 +219,11 @@ namespace TiffinWaale.Services
                         Dinner = true,
                         Vegeterian = false,
                         NonVegeterian = true,
-                        Jain = false,
+                        Jain = true,
                         HomeDelivery = true,
                         HomeDeliveryArea = 20.0,
                         TakeAway = true,
-                        Cuisine = "Panjabi, Gujarati, Rajasthani"
+                        Cuisine = "Panjabi, Gujarati, Rajasthani, Maharashtrian"
                     }
                 }
             };

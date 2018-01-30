@@ -22,85 +22,42 @@ namespace TiffinWaale.Views
             InitializeComponent();
 
             //Service Type
-            var lunchLabel = new Label();
-            if (viewModel.Supplier.Services.Lunch)
-            {
-                lunchLabel = new Label { Text = "Lunch", BackgroundColor = Color.LightGreen, LineBreakMode = LineBreakMode.NoWrap };
-            }
-            else
-            {
-                lunchLabel = new Label { Text = "Lunch", BackgroundColor = Color.Gray,  LineBreakMode = LineBreakMode.NoWrap };
-            }
+            var lunchLabel = new Label { Text = "Lunch" };
+            lunchLabel.Style = viewModel.Supplier.Services.Lunch ? (Style)Application.Current.Resources["LabelGreenText"] : (Style)Application.Current.Resources["LabelGrayText"];
             ServiceTypeStackLayout.Children.Add(lunchLabel);
 
-            var dinnerLabel = new Label();
-            if (viewModel.Supplier.Services.Dinner)
-            {
-                dinnerLabel = new Label { Text = "Dinner", BackgroundColor = Color.LightGreen, LineBreakMode = LineBreakMode.NoWrap };
-            }
-            else
-            {
-                dinnerLabel = new Label { Text = "Dinner", BackgroundColor = Color.Gray,  LineBreakMode = LineBreakMode.NoWrap };
-            }
+            var dinnerLabel = new Label { Text = "Dinner" };
+            dinnerLabel.Style = viewModel.Supplier.Services.Dinner ? (Style)Application.Current.Resources["LabelGreenText"] : (Style)Application.Current.Resources["LabelGrayText"];
             ServiceTypeStackLayout.Children.Add(dinnerLabel);
 
             //FoodCategory
-            var vegeterianLabel = new Label();
-            if (viewModel.Supplier.Services.Vegeterian)
-            {
-                vegeterianLabel = new Label { Text = "Vegeterian", BackgroundColor = Color.LightGreen, LineBreakMode = LineBreakMode.NoWrap };
-            }
-            else
-            {
-                vegeterianLabel = new Label { Text = "Vegeterian", BackgroundColor = Color.Gray, LineBreakMode = LineBreakMode.NoWrap };
-            }
+            var vegeterianLabel = new Label { Text = "Vegeterian" };
+            vegeterianLabel.Style = viewModel.Supplier.Services.Vegeterian ? (Style)Application.Current.Resources["LabelGreenText"] : (Style)Application.Current.Resources["LabelGrayText"];
             FoodCategoryStackLayout.Children.Add(vegeterianLabel);
 
-            var nonVegeterianLabel = new Label();
-            if (viewModel.Supplier.Services.NonVegeterian)
-            {
-                nonVegeterianLabel = new Label { Text = "Non-Vegeterian", BackgroundColor = Color.LightGreen, LineBreakMode = LineBreakMode.NoWrap };
-            }
-            else
-            {
-                nonVegeterianLabel = new Label { Text = "Non-Vegeterian", BackgroundColor = Color.Gray, LineBreakMode = LineBreakMode.NoWrap };
-            }
+            var nonVegeterianLabel = new Label { Text = "Non-Vegeterian" };
+            nonVegeterianLabel.Style = viewModel.Supplier.Services.NonVegeterian ? (Style)Application.Current.Resources["LabelGreenText"] : (Style)Application.Current.Resources["LabelGrayText"];
             FoodCategoryStackLayout.Children.Add(nonVegeterianLabel);
 
             //Delivery Details
-            var homeDeliveryLabel = new Label();
-            if (viewModel.Supplier.Services.HomeDelivery)
-            {
-                homeDeliveryLabel = new Label { Text = "Home Delivery", BackgroundColor = Color.LightGreen, LineBreakMode = LineBreakMode.NoWrap };
-            }
-            else
-            {
-                homeDeliveryLabel = new Label { Text = "Home Delivery", BackgroundColor = Color.Gray, LineBreakMode = LineBreakMode.NoWrap };
-            }
+            var homeDeliveryLabel = new Label { Text = "Home Delivery" };
+            homeDeliveryLabel.Style = viewModel.Supplier.Services.HomeDelivery ? (Style)Application.Current.Resources["LabelGreenText"] : (Style)Application.Current.Resources["LabelGrayText"];
             DeliveryStackLayout.Children.Add(homeDeliveryLabel);
 
-            var takeAwayLabel = new Label();
-            if (viewModel.Supplier.Services.TakeAway)
-            {
-                takeAwayLabel = new Label { Text = "Take AwayLabel", BackgroundColor = Color.LightGreen, LineBreakMode = LineBreakMode.NoWrap };
-            }
-            else
-            {
-                takeAwayLabel = new Label { Text = "Take AwayLabel", BackgroundColor = Color.Gray, LineBreakMode = LineBreakMode.NoWrap };
-            }
+            var takeAwayLabel = new Label { Text = "Take Away" };
+            takeAwayLabel.Style = viewModel.Supplier.Services.TakeAway ? (Style)Application.Current.Resources["LabelGreenText"] : (Style)Application.Current.Resources["LabelGrayText"];
             DeliveryStackLayout.Children.Add(takeAwayLabel);
 
             //Cuisine
-            var cuisineLabel = new Label();
-            if (viewModel.Supplier.Services.Cuisine.ToString() != "")
+           if (viewModel.Supplier.Services.Cuisine.ToString() != "")
             {
-                cuisineLabel = new Label { Text = "Take AwayLabel", BackgroundColor = Color.LightGreen, LineBreakMode = LineBreakMode.NoWrap };
+                string[] cusines = viewModel.Supplier.Services.Cuisine.ToString().Split(',').Select(sValue => sValue.Trim()).ToArray();
+                foreach (string cusineName in cusines)
+                {
+                    var cuisineLabel = new Label { Text = cusineName, Style = (Style)Application.Current.Resources["LabelGreenText"], };
+                    CuisineLayout.Children.Add(cuisineLabel);
+                }
             }
-   
-
-
-
         }
-
     }
 }
