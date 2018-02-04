@@ -8,6 +8,72 @@
             <Entry x:Name="FilterEntry"
                    Placeholder="Search"
                    TextChanged="OnFilterTextChanged"/>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Lunch"
+                       Grid.Row="0"
+                       Grid.Column="0"/>
+                <Switch x:Name="LunchToggle"
+                        Toggled="OnFilterToggle"
+                        Grid.Row="0"
+                        Grid.Column="1"/>
+                <Label Text="Dinner"
+                       Grid.Row="1"
+                       Grid.Column="0"/>
+                <Switch x:Name="DinnerToggle"
+                        Toggled="OnFilterToggle"
+                        Grid.Row="1"
+                        Grid.Column="1"/>
+                <Label Text="Vegeterian"
+                       Grid.Row="2"
+                       Grid.Column="0"/>
+                <Switch x:Name="VegeterianToggle"
+                        Toggled="OnFilterToggle"
+                        Grid.Row="2"
+                        Grid.Column="1"/>
+                <Label Text="Non-Vegeterian"
+                       Grid.Row="3"
+                       Grid.Column="0"/>
+                <Switch x:Name="NonVegeterianToggle"
+                        Toggled="OnFilterToggle"
+                        Grid.Row="3"
+                        Grid.Column="1"/>
+                <Label Text="Jain"
+                       Grid.Row="4"
+                       Grid.Column="0"/>
+                <Switch x:Name="JainToggle"
+                        Toggled="OnFilterToggle"
+                        Grid.Row="4"
+                        Grid.Column="1"/>
+                <Label Text="Delivery"
+                       Grid.Row="5"
+                       Grid.Column="0"/>
+                <Switch x:Name="DeliveryToggle"
+                        Toggled="OnFilterToggle"
+                        Grid.Row="5"
+                        Grid.Column="1"/>
+                <Label Text="Take away"
+                       Grid.Row="6"
+                       Grid.Column="0"/>
+                <Switch x:Name="TakeAwayToggle"
+                        Toggled="OnFilterToggle"
+                        Grid.Row="6"
+                        Grid.Column="1"/>
+            </Grid>
+
             <ListView x:Name="ItemsListView" 
                       ItemsSource="{Binding Suppliers}"
                       VerticalOptions="FillAndExpand"

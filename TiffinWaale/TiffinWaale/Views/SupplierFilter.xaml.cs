@@ -52,5 +52,14 @@ namespace TiffinWaale.Views
                 }
             }
         }
+
+        private void OnFilterToggle(object sender, ToggledEventArgs e)
+        {
+            viewModel.Suppliers.Clear();
+            var switchControl = sender as Switch;
+            var controlToggled = e.Value;
+
+            //if(switchControl)
+        }
     }
 }
